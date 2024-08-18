@@ -1,4 +1,4 @@
-Here's the README formatted properly for a `README.md` file, ensuring that Markdown syntax is correctly applied:
+Here's the updated README file that includes instructions for creating the environment variable file and a detailed explanation of how the application works.
 
 ---
 
@@ -9,7 +9,7 @@ Welcome to the **Medical Report Analysis** tool! This application helps you anal
 ## 🚀 Features
 
 - **Analyze Blood Reports:** Automatically extracts and summarizes information from a PDF blood report.
-- **Health Research:** Find relevant health articles based on the analysis.
+- **Health Research:** Finds relevant health articles based on the analysis.
 - **Personalized Recommendations:** Provides easy-to-understand health advice based on the results.
 
 ## 🛠️ Setup Instructions
@@ -24,17 +24,38 @@ First, clone the repository to your local machine:
 git clone https://github.com/ansuman-shukla/Medical_CREW.git
 ```
 
-### 2. Install Dependencies
+### 2. Create and Activate a Virtual Environment
 
-Make sure you have Python installed. Then, install the required Python packages:
+It's recommended to create a virtual environment to manage your dependencies:
+
+```bash
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+Install the required Python packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Set Up Environment Variables
+### 4. Set Up Environment Variables
 
 Create a `.env` file in the project root directory and add your API keys:
+
+```bash
+touch .env
+```
+
+Open the `.env` file in a text editor and add the following:
 
 ```env
 SERPER_API_KEY=your-serper-api-key
@@ -43,21 +64,50 @@ OPENAI_MODEL_NAME=your-model-name
 OPENAI_API_BASE=your-openai-api-base-url
 ```
 
-### 4. Run the Application
+Replace the placeholder values with your actual API keys and settings.
 
-Finally, run the Streamlit application:
+### 5. Run the Application
+
+Run the Streamlit application:
 
 ```bash
 streamlit run app.py
 ```
 
-### 5. Upload a PDF
+### 6. Upload a PDF
 
 Once the application is running, you can upload a PDF file by clicking on the **"Choose a PDF file"** button.
 
-### 6. Analyze and Get Results
+### 7. Analyze and Get Results
 
 Click on the **"Analyze Report"** button to start the analysis. The results will be displayed on the same page, including a summary of the blood test and health recommendations with clickable links to sources.
+
+## 🔍 How Agents Works
+
+This application uses a team of AI agents to analyze a medical report and provide health recommendations. Here’s how it works:
+
+### 1. Medical Analyst Agent
+
+- **Role:** The Medical Analyst is the first agent to work. This agent is responsible for analyzing the blood test report and extracting key information.
+- **Task:** It reads the uploaded PDF file, extracts the text, and produces a summary of the blood test in simple terms.
+
+### 2. Health Researcher Agent
+
+- **Role:** After the Medical Analyst has completed its task, the Health Researcher takes over.
+- **Task:** This agent searches the internet for relevant health articles based on the blood test analysis. It compiles a list of articles with URLs and brief descriptions.
+
+### 3. Health Advisor Agent
+
+- **Role:** Finally, the Health Advisor reviews the analysis and the articles provided by the Health Researcher.
+- **Task:** This agent generates personalized health recommendations. It produces a short summary of the blood test report, followed by actionable health tips, each with a link to the relevant source.
+
+### 4. Sequential Process
+
+- **Execution:** The application uses a sequential process where each agent completes its task before passing the output to the next agent. This ensures that the final recommendations are based on thorough analysis and well-researched information.
+
+### 5. Final Output
+
+- **Result:** The output is a concise report displayed in Markdown format, including a summary of the blood test and a list of health recommendations with clickable links to relevant articles.
 
 ## 🧰 Development Setup
 
@@ -69,7 +119,7 @@ Logging is already set up in the application. You can see detailed logs in the t
 
 ### 2. Customize Agents and Tasks
 
-You can find the agent and task initialization functions in the `main.py` file. Feel free to modify them to fit your needs.
+You can find the agent and task initialization functions in the `app.py` file. Feel free to modify them to fit your needs.
 
 ### 3. Update Dependencies
 
@@ -84,5 +134,3 @@ pip freeze > requirements.txt
 Make sure to test your changes by running the application with different PDF files.
 
 ---
-
-This version should render correctly in a `README.md` file, with proper spacing, line breaks, and formatting.
