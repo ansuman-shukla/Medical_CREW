@@ -1,0 +1,16 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment
+fresh_env/
+
+# Ignore environment variables file
+.env
+
+# Ignore IDE settings (JetBrains IDEs)
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
