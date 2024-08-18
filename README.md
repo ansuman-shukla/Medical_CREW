@@ -76,7 +76,9 @@ streamlit run app.py
 
 ### 6. Upload a PDF
 
-Once the application is running, you can upload a PDF file by clicking on the **"Choose a PDF file"** button.
+Once the application is running, you can upload a PDF file by clicking on the **"Browse file"** button.
+![Screenshot 2024-08-18 095558](https://github.com/user-attachments/assets/8019f9e1-3822-4fba-98f7-ffb7254d5b4d)
+
 
 ### 7. Analyze and Get Results
 
